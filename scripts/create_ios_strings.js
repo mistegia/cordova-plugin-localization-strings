@@ -167,7 +167,7 @@ function getTargetLang(context) {
     var path = context.requireCordovaModule('path');
     var glob = context.requireCordovaModule('glob');
 
-    glob("translations/app/*.json",
+    glob("www/translations/app/*.json",
         function(err, langFiles) {
             if(err) {
                 deferred.reject(err);
@@ -175,7 +175,7 @@ function getTargetLang(context) {
             else {
 
                 langFiles.forEach(function(langFile) {
-                    var matches = langFile.match(/translations\/app\/(.*).json/);
+                    var matches = langFile.match(/www\/translations\/app\/(.*).json/);
                     if (matches) {
                         targetLangArr.push({
                             lang: matches[1],
